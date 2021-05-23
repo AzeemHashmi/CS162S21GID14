@@ -25,6 +25,11 @@ background-color: #b8b8b8;
     background-color: #e8e8e8;
     width: 100%;
 }
+
+#home
+{
+    margin: 0px 0px ;
+}
 .Company{
     margin: 15px 0px;
     font-size: 30px;
