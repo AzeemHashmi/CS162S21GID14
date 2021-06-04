@@ -5,7 +5,7 @@ using System.Web;
 
 namespace CS162S21GID14.Models
 {
-    public class TextPost
+    public class TextPost : Post
     {
     }
 }

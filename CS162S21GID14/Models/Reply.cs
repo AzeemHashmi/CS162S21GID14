@@ -7,7 +7,7 @@ namespace CS162S21GID14.Models
 {
     public class Reply
     {
-        public string  ReplyText { get; set; }
+        public string ReplyText { get; set; }
         public AboutProfile RefProfile { get; set; }
         public Queue<Reply> ReplyQueue { get; set; }
 
@@ -42,3 +42,4 @@ namespace CS162S21GID14.Models
             return false;
         }
     }
+}

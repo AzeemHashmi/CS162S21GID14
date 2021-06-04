@@ -50,7 +50,7 @@ namespace CS162S21GID14.Models
         //////////  For Comment List
         public void AddComment(Comments com)
         {
-            CommentsList.Add(react);
+            CommentsList.Add(com);
         }
 
 
@@ -58,7 +58,7 @@ namespace CS162S21GID14.Models
         {
             if (CommentsList.Contains(com) == true)
             {
-                CommentsList.Remove(react);
+                CommentsList.Remove(com);
                 return true;
             }
             return false;
@@ -103,6 +103,5 @@ namespace CS162S21GID14.Models
             }
             return -1;
         }
-
     }
 }

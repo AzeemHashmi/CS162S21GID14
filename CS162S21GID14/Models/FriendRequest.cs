@@ -5,7 +5,8 @@ using System.Web;
 
 namespace CS162S21GID14.Models
 {
-    public class FriendRequest
+    abstract public class FriendRequest
     {
+        public AboutProfile RefProfile { get; set; }
     }
 }

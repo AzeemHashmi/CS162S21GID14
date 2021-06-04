@@ -13,6 +13,5 @@ namespace CS162S21GID14.Controllers
         {
             return View();
         }
-
     }
 }

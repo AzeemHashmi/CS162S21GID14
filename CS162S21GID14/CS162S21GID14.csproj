@@ -140,10 +140,38 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AboutProfile.cs" />
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\AccountPrivacy.cs" />
     <Compile Include="Models\AdminAccount.cs" />
+    <Compile Include="Models\Chat.cs" />
+    <Compile Include="Models\Comments.cs" />
+    <Compile Include="Models\Faviorites.cs" />
+    <Compile Include="Models\FriendRequest.cs" />
+    <Compile Include="Models\Friends.cs" />
+    <Compile Include="Models\GeneralSetting.cs" />
+    <Compile Include="Models\MediaPost.cs" />
+    <Compile Include="Models\Messages.cs" />
+    <Compile Include="Models\Notification.cs" />
+    <Compile Include="Models\PicturePost.cs" />
+    <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\PostPrivacy.cs" />
+    <Compile Include="Models\PrivacySetting.cs" />
+    <Compile Include="Models\Profile.cs" />
+    <Compile Include="Models\Reactions.cs" />
+    <Compile Include="Models\RecieveRequest.cs" />
+    <Compile Include="Models\Reply.cs" />
+    <Compile Include="Models\Report.cs" />
+    <Compile Include="Models\SentRequest.cs" />
+    <Compile Include="Models\Settings.cs" />
+    <Compile Include="Models\Share.cs" />
+    <Compile Include="Models\Story.cs" />
+    <Compile Include="Models\Tags.cs" />
+    <Compile Include="Models\TextPost.cs" />
+    <Compile Include="Models\Timeline.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserAccount.cs" />
+    <Compile Include="Models\VideoPost.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

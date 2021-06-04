@@ -11,17 +11,16 @@ namespace CS162S21GID14.Models
         public AboutProfile RefProfile { get; set; }
         public Queue<Reply> ReplyQueue { get; set; }
 
-
-        public bool AddReply(Reply rep)
+        public Comments()
         {
-            bool flag = false;
-            if (SearchReport(rep) != -1)
-            {
-                ReplyQueue.Enqueue(rep);
-                flag = true;
-            }
-            return flag;
+            ReplyQueue = new Queue<Reply>();
         }
+        public void AddReply(Reply rep)
+        {
+                ReplyQueue.Enqueue(rep);
+        }
+
+        
         public bool DeleteReply(Reply rep)
         {
             Queue<Reply> updatedQueue = null;

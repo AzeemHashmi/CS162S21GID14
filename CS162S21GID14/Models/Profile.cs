@@ -7,5 +7,13 @@ namespace CS162S21GID14.Models
 {
     public class Profile
     {
+        public AboutProfile About { get; set; }
+        public static Timeline ProfileTimeline { get; set; }
+
+        public Profile()
+        {
+            About = new AboutProfile();
+            ProfileTimeline = new Timeline();
+        }
     }
 }

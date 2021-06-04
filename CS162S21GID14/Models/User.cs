@@ -9,12 +9,11 @@ namespace CS162S21GID14.Models
     {
         private static User instance = null;
         private  List<UserAccount>  userAccountList = null;
-        private string name;
 
 
         public User()
         {
-            
+            userAccountList = new List<UserAccount>();
         }
         public User Instance
         {
@@ -27,10 +26,6 @@ namespace CS162S21GID14.Models
                 return instance;
             }
         }
-        public string  Name
-        {
-            get { return "Ehsaan"; }
-        }
 
         public List<UserAccount> UserAccountList
         {
@@ -40,7 +35,7 @@ namespace CS162S21GID14.Models
         public bool AddAccount(UserAccount acc)
         {
             bool flag = false;
-            if(SearchAccount(acc) !=-1)
+            if(SearchAccount(acc) ==-1)
             {
                 userAccountList.Add(acc);
                 flag = true;

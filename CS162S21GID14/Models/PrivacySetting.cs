@@ -5,7 +5,8 @@ using System.Web;
 
 namespace CS162S21GID14.Models
 {
-    public class PrivacySetting
+    abstract public class PrivacySetting : Settings
     {
+
     }
 }

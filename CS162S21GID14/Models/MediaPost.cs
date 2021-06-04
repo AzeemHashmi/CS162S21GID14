@@ -7,6 +7,6 @@ namespace CS162S21GID14.Models
 {
     public class MediaPost : Post
     {
-        public string Picture { get; set; }
+        
     }
 }
