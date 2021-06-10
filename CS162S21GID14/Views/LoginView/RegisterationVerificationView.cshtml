@@ -1,0 +1,35 @@
+﻿
+
+
+
+
+
+
+<div class="card" style="width: 18rem; margin-top: 10%">
+    <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">
+            With supporting text below as a natural lead-in to additional content.
+        </p>
+        <a class="btn btn-primary" onclick="SendEmail()">Send Email</a>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+
+        var SendEmail = function() {
+            $.ajax({
+                type: 'POST',
+                url: "/LoginView/SendMailToUser",
+                success: function (data) {
+                    alert("Sent Email")
+                },
+                error: function (data) {
+                    alert("not Sent Email")
+                }
+            });
+        }
+
+    </script>
+}

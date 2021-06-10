@@ -212,6 +212,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\HomePage\Home.cshtml" />
     <Content Include="Views\LoginView\LoginView.cshtml" />
+    <Content Include="Views\LoginView\RegisterationVerificationView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
