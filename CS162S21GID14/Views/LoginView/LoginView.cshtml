@@ -164,8 +164,8 @@
                             </label>
                         </div>
 
-                        <!-- Submit button -->
-                        <button type="button" class="btn btn-primary btn-block mb-3" onclick="window.location.href = 'https://localhost:44344/LoginView/RegisterationVerificationView'; console.log('Email is here');">Sign Up</button>
+                        <!-- Submit button -->          <!--https://localhost:44344/LoginView/RegisterationVerificationView-->
+                        <button type="button" class="btn btn-primary btn-block mb-3" onclick="window.location.href = 'https://localhost:44344/LoginView/RegisterationVerificationView'">Sign Up</button>
                     </form>
                 </div>
             </div>
@@ -295,9 +295,47 @@
 <!-- Footer -->
 @section scripts{
     <script>
-        function save() {
-            var username = document.getElementById("loginName");
-            var pass = document.getElementById("loginPassword");
+         //   var name = document.getElementById("registerName").value;
+           // var pass = document.getElementById("registerPassword").value;
+           // var user = document.getElementById("registerUsername").value;
+           // var email = document.getElementById("registerEmail").value;
+
+//            var obj = {
+  //              Name: name,
+               // Email: pass,
+          /*     Password: email,
+                Username: user
+            };
+            console.log(email);
+
+            var data = JSON.stringify(obj);
+
+            $.ajax({
+                type: 'POST',
+                url: "/Login/SendMailToUser",
+                success: function (data) {
+                    alert("Email Sent");
+                },
+                error: function (data) {
+                        alert("not Sent Email")
+                    
+                }
+            });*/
+
+         function SendEmail() {
+            $.ajax({
+                type: 'POST',
+                url: "/LoginView/SendMailToUser",
+                success: function (data) {
+                    alert("Sent Email")
+                },
+                error: function (data) {
+                    alert("not Sent Email")
+                }
+            });
         }
+         //   window.location.href = '';
+
+      }
     </script>
 }

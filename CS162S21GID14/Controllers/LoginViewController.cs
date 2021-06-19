@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CS162S21GID14.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -20,20 +21,18 @@ namespace CS162S21GID14.Controllers
         {
             return View();
         }
-
         [HttpPost]
         public JsonResult SendMailToUser()
         {
-
             bool result = false;
-            Random num = new Random(8000);
+            Random num = new Random();
             int randNum = num.Next(1000000, 9999999);
-
-            result = SendEmail("sidetesting2021@gmail.com", "Confirm Password", "<p>Hi Muhammad Ehsaan,<br />"+"Your confirmation code is: "+randNum+"Regards AE-Connect</p>");
+            result = SendEmail("azeemhashmi1826@gmail.com", "Verification Code", "<p>Hi Syed Azeem Ali Hashmi,<br/>" + "Your confirmation code is: " + randNum + "<br/>Regards AE-Connect</p>");
 
             return Json(result, JsonRequestBehavior.AllowGet);
 
         }
+
 
         public bool SendEmail(string toEmail, string subject, string emailBody)
         {
@@ -48,9 +47,9 @@ namespace CS162S21GID14.Controllers
                 client.Timeout = 100000;
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
                 client.UseDefaultCredentials = false;
-                client.Credentials = new NetworkCredential(senderEmail, senderPassword);
+                client.Credentials = new NetworkCredential("ehsaan2611@gmail.com", senderPassword);
 
-                MailMessage mailMessage = new MailMessage(senderEmail, toEmail, subject, emailBody);
+                MailMessage mailMessage = new MailMessage("ehsaan2611@gmail.com", toEmail, subject, emailBody);
                 mailMessage.IsBodyHtml = true;
                 mailMessage.BodyEncoding = UTF8Encoding.UTF8;
                 client.Send(mailMessage);
@@ -63,8 +62,8 @@ namespace CS162S21GID14.Controllers
                 return false;
 
             }
-
         }
+
 
     }
 }

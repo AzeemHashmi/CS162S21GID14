@@ -4,6 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Net.Mail;
+using System.Text;
 using CS162S21GID14.Models;
 
 namespace CS162S21GID14.Controllers
