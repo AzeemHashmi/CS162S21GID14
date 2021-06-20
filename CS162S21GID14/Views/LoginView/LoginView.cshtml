@@ -87,7 +87,7 @@
                         </div>
 
                         <!-- Submit button -->
-                        <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+                        <button type="button" class="btn btn-primary btn-block mb-4" onclick="SignIn();">Sign in</button>
 
                         <!-- Register buttons -->
                         <div class="text-center">
@@ -165,7 +165,7 @@
                         </div>
 
                         <!-- Submit button -->          <!--https://localhost:44344/LoginView/RegisterationVerificationView-->
-                        <button type="button" class="btn btn-primary btn-block mb-3" onclick="window.location.href = 'https://localhost:44344/LoginView/RegisterationVerificationView'">Sign Up</button>
+                        <button type="button" class="btn btn-primary btn-block mb-3" onclick="SendEmail();">Sign Up</button>
                     </form>
                 </div>
             </div>
@@ -295,47 +295,67 @@
 <!-- Footer -->
 @section scripts{
     <script>
-         //   var name = document.getElementById("registerName").value;
-           // var pass = document.getElementById("registerPassword").value;
-           // var user = document.getElementById("registerUsername").value;
-           // var email = document.getElementById("registerEmail").value;
 
-//            var obj = {
-  //              Name: name,
-               // Email: pass,
-          /*     Password: email,
-                Username: user
-            };
-            console.log(email);
+        function SignIn() {
+            var UserAccount = {}
+            UserAccount.Email = $("#loginName").val();
+            UserAccount.Password = $("#loginPassword").val();
 
-            var data = JSON.stringify(obj);
-
+            alert(UserAccount.Email);
             $.ajax({
                 type: 'POST',
-                url: "/Login/SendMailToUser",
+                url: "https://localhost:44344/api/Login/SignIn",
+                data: JSON.stringify(UserAccount),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
                 success: function (data) {
-                    alert("Email Sent");
+                    var check = data + "";
+                    alert(data);
+                    alert(check);
+                    if (check == "true") {
+                      document.location.href = '/HomePage/Home';
+                    }
+                    else {
+                        alert("get the else");
+                    }
+                  
                 },
                 error: function (data) {
-                        alert("not Sent Email")
-                    
+                    alert("error case : " + data)
                 }
-            });*/
+            });
 
-         function SendEmail() {
+        }
+
+
+        var SendEmail = function () {
+
+            var Account = {}
+            Account.Email = $("#registerEmail").val();
+            Account.Name = $("#registerName").val();
+            Account.Password = $("#registerPassword").val();
+            Account.Username = $("#registerUsername").val();
+                /*   public string Name { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Email { get; set; }*/
+
+            alert(Account.Email);
             $.ajax({
                 type: 'POST',
-                url: "/LoginView/SendMailToUser",
+                url: "https://localhost:44344/api/Account/AddAccount",
+                data: JSON.stringify(Account),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
                 success: function (data) {
-                    alert("Sent Email")
+                    alert(data)
                 },
                 error: function (data) {
-                    alert("not Sent Email")
+                    alert("error case : " + data)
                 }
             });
         }
-         //   window.location.href = '';
 
-      }
+
     </script>
 }

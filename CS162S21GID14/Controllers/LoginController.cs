@@ -12,10 +12,19 @@ namespace CS162S21GID14.Controllers
 {
     public class LoginController : ApiController
     {
-        [HttpGet]
+        [HttpPost]
         public bool SignIn(UserAccount obj)
         {
-            User user = new User();
+            AccountDBMSEntities dbms = new AccountDBMSEntities();
+            var dbList = dbms.AccountCredentials.ToList();
+            foreach (var dbObj in dbList)
+            {
+               if((dbObj.Email == obj.Email) && (dbObj.Password == obj.Password))
+                {
+                    return true;
+                }
+            }
+            /*User user = new User();
             user = user.Instance;
             for(int i = 0;i<user.UserAccountList.Count;i++)
             {
@@ -24,6 +33,7 @@ namespace CS162S21GID14.Controllers
                     return true;
                 }
             }
+            return false;*/
             return false;
         }
 

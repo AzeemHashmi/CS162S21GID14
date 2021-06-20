@@ -22,13 +22,22 @@ namespace CS162S21GID14.Controllers
             return View();
         }
         [HttpPost]
-        public JsonResult SendMailToUser()
+        public JsonResult SendMailToUser(Account Account)
         {
             bool result = false;
             Random num = new Random();
             int randNum = num.Next(1000000, 9999999);
-            result = SendEmail("azeemhashmi1826@gmail.com", "Verification Code", "<p>Hi Syed Azeem Ali Hashmi,<br/>" + "Your confirmation code is: " + randNum + "<br/>Regards AE-Connect</p>");
-
+            result = SendEmail(Account.Email, "Verification Code", "<p>Hi, "+Account.Name+"<br/>" + "Your confirmation code is: <b>" + randNum + "</b><br/>Regards AE-Connect</p>");
+            User user = new User();
+            user = user.Instance;
+            user.UserAccountList.Add((UserAccount)Account);
+            AccountDBMSEntities DataBase = new AccountDBMSEntities();
+            AccountCredential Cred = new AccountCredential();
+            Cred.Email = Account.Email;
+            Cred.Name = Account.Name;
+            Cred.Username = Account.Username;
+            Cred.Password = Account.Password;
+            DataBase.AccountCredentials.Add(Cred);
             return Json(result, JsonRequestBehavior.AllowGet);
 
         }

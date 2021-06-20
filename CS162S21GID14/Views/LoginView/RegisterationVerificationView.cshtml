@@ -3,30 +3,47 @@
 
 
 
+<div class="container">
+    <div class="row">
+        <div class="col-md">
+        </div>
+        <div class="col-md">
 
-
-<div class="card" style="width: 18rem; margin-top: 10%">
-    <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">
-            With supporting text below as a natural lead-in to additional content.
-        </p>
-        <a class="btn btn-primary" onclick="SendEmail()">Send Email</a>
+            <div class="card" style="width: 18rem; margin-top: 30%">
+                <div class="card-body">
+                    <h5 class="card-title" style="text-align:center;">Enter Verification Code</h5>
+                    <p class="card-text">
+                        <input type="text" style="margin-left:10%;" />
+                    </p>
+                    <a class="btn btn-primary" onclick="SendEmail();" style="margin-left: 30% ;text-align: center">Verify</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md">
+        </div>
     </div>
 </div>
+
 
 @section scripts{
     <script>
 
-        var SendEmail = function() {
+        var SendEmail = function () {
+
+            var Account = {}
+            Account.Email = "ehsaan2611@gmail.com";
+            alert(Account.Email);
             $.ajax({
                 type: 'POST',
                 url: "/LoginView/SendMailToUser",
+                data: JSON.stringify(Account),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
                 success: function (data) {
-                    alert("Sent Email")
+                    alert(data)
                 },
                 error: function (data) {
-                    alert("not Sent Email")
+                    alert("error case : " + data)
                 }
             });
         }
