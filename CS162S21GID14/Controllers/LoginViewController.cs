@@ -28,18 +28,7 @@ namespace CS162S21GID14.Controllers
             Random num = new Random();
             int randNum = num.Next(1000000, 9999999);
             result = SendEmail(Account.Email, "Verification Code", "<p>Hi, "+Account.Name+"<br/>" + "Your confirmation code is: <b>" + randNum + "</b><br/>Regards AE-Connect</p>");
-            User user = new User();
-            user = user.Instance;
-            user.UserAccountList.Add((UserAccount)Account);
-            AccountDBMSEntities DataBase = new AccountDBMSEntities();
-            AccountCredential Cred = new AccountCredential();
-            Cred.Email = Account.Email;
-            Cred.Name = Account.Name;
-            Cred.Username = Account.Username;
-            Cred.Password = Account.Password;
-            DataBase.AccountCredentials.Add(Cred);
-            return Json(result, JsonRequestBehavior.AllowGet);
-
+            return Json(randNum, JsonRequestBehavior.AllowGet);
         }
 
 

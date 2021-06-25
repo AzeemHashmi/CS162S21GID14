@@ -68,4 +68,32 @@
             }
         }
     </script>
+    <script>
+
+        $(document).ready(function () {
+                alert(localStorage.getItem("loginEmail"));
+
+                var UserAccount = {}
+                UserAccount.Email = localStorage.getItem("loginEmail").toString();
+                UserAccount.Password = "";
+                UserAccount.Username = "";
+                UserAccount.Name = "";
+                $.ajax({
+                    type: 'POST',
+                    url: "https://localhost:44344/api/HomePageData/LoadHomePage",
+                    data: JSON.stringify(UserAccount),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        document.getElementById("profileName").innerHTML = data.Name;
+                    },
+                    error: function (data) {
+                        alert("error case : " + data)
+                    }
+                });
+            });
+
+
+
+    </script>
 }

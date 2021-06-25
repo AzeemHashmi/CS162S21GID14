@@ -5,7 +5,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md">
+        <div class="col-md" id="">
         </div>
         <div class="col-md">
 
@@ -13,9 +13,9 @@
                 <div class="card-body">
                     <h5 class="card-title" style="text-align:center;">Enter Verification Code</h5>
                     <p class="card-text">
-                        <input type="text" style="margin-left:10%;" />
+                        <input type="text" id="verify" style="margin-left:10%;" />
                     </p>
-                    <a class="btn btn-primary" onclick="SendEmail();" style="margin-left: 30% ;text-align: center">Verify</a>
+                    <a class="btn btn-primary" onclick="Verify();" style="margin-left: 30% ;text-align: center">Verify</a>
                 </div>
             </div>
         </div>
@@ -28,24 +28,41 @@
 @section scripts{
     <script>
 
-        var SendEmail = function () {
+        var Verify = function () {
 
             var Account = {}
-            Account.Email = "ehsaan2611@gmail.com";
-            alert(Account.Email);
-            $.ajax({
-                type: 'POST',
-                url: "/LoginView/SendMailToUser",
-                data: JSON.stringify(Account),
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (data) {
-                    alert(data)
-                },
-                error: function (data) {
-                    alert("error case : " + data)
-                }
-            });
+            Account.Email = localStorage.getItem("registerEmail");
+            Account.Name = localStorage.getItem("registerName");
+            Account.Password = localStorage.getItem("registerPassword");
+            Account.Username = localStorage.getItem("registerUsername");
+
+            
+            var code = localStorage.getItem("VerificationCode");
+            alert(localStorage.getItem("VerificationCode"));
+            if (code == $("#verify").val()) {
+                $.ajax({
+                    type: 'POST',
+                    url: "https://localhost:44344/api/Account/AddAccount",
+                    data: JSON.stringify(Account),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        alert(data)
+                        localStorage.removeItem("VerificationCode");
+                        localStorage.removeItem("registerEmail");
+                        localStorage.removeItem("registerName");
+                        localStorage.removeItem("registerPassword");
+                        localStorage.removeItem("registerUsername");
+                    },
+                    error: function (data) {
+                        alert("error case : " + data.Email)
+                    }
+                });
+            }
+            else {
+                alert("Did not matched");
+            }
+            
         }
 
     </script>
