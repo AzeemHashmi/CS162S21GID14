@@ -38,7 +38,6 @@
 
             
             var code = localStorage.getItem("VerificationCode");
-            alert(localStorage.getItem("VerificationCode"));
             if (code == $("#verify").val()) {
                 $.ajax({
                     type: 'POST',
@@ -48,6 +47,7 @@
                     dataType: "json",
                     success: function (data) {
                         alert(data)
+                        document.location.href = "https://localhost:44344/LoginView/LoginView";
                         localStorage.removeItem("VerificationCode");
                         localStorage.removeItem("registerEmail");
                         localStorage.removeItem("registerName");

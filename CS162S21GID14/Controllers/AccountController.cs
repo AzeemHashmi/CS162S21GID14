@@ -22,6 +22,8 @@ namespace CS162S21GID14.Controllers
             cred.Username = acc.Username;
             dbms.AccountCredentials.Add(cred);
             dbms.SaveChanges();
+            User user = new User();
+            //user = User.Instance;
             return true;
         }
     }

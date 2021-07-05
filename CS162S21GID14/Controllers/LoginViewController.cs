@@ -45,9 +45,9 @@ namespace CS162S21GID14.Controllers
                 client.Timeout = 100000;
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
                 client.UseDefaultCredentials = false;
-                client.Credentials = new NetworkCredential("ehsaan2611@gmail.com", senderPassword);
+                client.Credentials = new NetworkCredential("ae123connect@gmail.com", senderPassword);
 
-                MailMessage mailMessage = new MailMessage("ehsaan2611@gmail.com", toEmail, subject, emailBody);
+                MailMessage mailMessage = new MailMessage("ae123connect@gmail.com", toEmail, subject, emailBody);
                 mailMessage.IsBodyHtml = true;
                 mailMessage.BodyEncoding = UTF8Encoding.UTF8;
                 client.Send(mailMessage);
